@@ -1,0 +1,35 @@
+<ion-view view-title="Search results ({{moviesResultsCtrl.moviesFilter.length}} / {{moviesResultsCtrl.movies.length}})" ng-click="moviesResultsCtrl.queryClear()">
+
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon ion-navicon"
+                ng-click="moviesResultsCtrl.moviesSearch()">
+        </button>
+    </ion-nav-buttons>
+
+    <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" ng-model="moviesResultsCtrl.query.name" ng-change="moviesResultsCtrl.queryChanged()"
+                   placeholder="Search">
+            <i class="ion-close-round" ng-show="moviesResultsCtrl.clear"></i>
+        </label>
+    </div>
+
+    <ion-content class="has-subheader">
+
+        <ion-list>
+            <div collection-repeat="item in (moviesResultsCtrl.moviesFilter = (moviesResultsCtrl.movies | filter: moviesResultsCtrl.query))"
+                    type="item-text-wrap" ng-click="moviesResultsCtrl.moviesDetails(item)">
+                
+                <a class="item item-thumbnail-left">
+                    <img ng-src="{{item.pic}}">
+                    <h2>{{item.name}}</h2>
+                    <p>{{item.country}} - {{item.year}}</p>
+                    <p>{{item.genre}}</p>
+                </a>
+				
+            </div>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
