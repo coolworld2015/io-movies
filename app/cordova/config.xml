@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.io-base" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>IO-Base</name>
+<widget id="com.ionicframework.io-movies" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>IO-Movies</name>
   <description>
-      IO-Base
+      IO-Movies
     </description>
   <content src="index.html"/>
   <access origin="*"/>
