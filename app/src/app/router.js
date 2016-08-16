@@ -26,7 +26,19 @@
                     }
                 }
             })
-			
+
+            .state('root.setup', {
+                url: '/setup',
+                data: {
+                    requireLogin: true
+                },
+                views: {
+                    'root-setup': {
+                        templateUrl: 'app/setup.html'
+                    }
+                }
+            })
+
             .state('root.movies', {
                 url: '/movies',
                 data: {
@@ -40,8 +52,8 @@
                     }
                 }
             })
-			
-			.state('root.movies-details', {
+
+            .state('root.movies-details', {
                 url: '/movies-details',
                 data: {
                     requireLogin: true
@@ -55,7 +67,7 @@
                     }
                 }
             })
-			
+
             .state('root.movies-search', {
                 url: '/movies-search',
                 data: {
@@ -69,26 +81,26 @@
                     }
                 }
             })
-			
+
             .state('root.movies-search-results', {
                 url: '/movies-search-results?name?search',
-				data: {
+                data: {
                     requireLogin: true
                 },
-				views: {
+                views: {
                     'root-movies': {
-						templateUrl: 'movies/movies-search-results.html',
-						controller: 'MoviesSearchResultsCtrl',
-						controllerAs: 'moviesResultsCtrl'
-					}
-				},
+                        templateUrl: 'movies/movies-search-results.html',
+                        controller: 'MoviesSearchResultsCtrl',
+                        controllerAs: 'moviesResultsCtrl'
+                    }
+                },
                 resolve: {
                     items: ['$http', '$stateParams', '$rootScope', '$ionicLoading',
                         function ($http, $stateParams, $rootScope, $ionicLoading) {
                             var webUrl;
                             var name = $stateParams.name;
                             var type = $stateParams.search;
-							
+
                             if (type == 'title') {
                                 webUrl = 'http://www.omdbapi.com/?t=';
                             } else {
@@ -96,20 +108,19 @@
                             }
                             return $http.get(webUrl + name + '&plot=full')
                                 .then(function (data) {
-									$ionicLoading.hide();
+                                    $ionicLoading.hide();
                                     return data.data;
                                 })
                                 .catch(function () {
-									$rootScope.raisedError = true;
-									$ionicLoading.hide();
+                                    $rootScope.raisedError = true;
+                                    $ionicLoading.hide();
                                     return [];
                                 });
                         }]
                 }
-            })
-	
-        $urlRouterProvider.otherwise('root/home');
+            });
+
+        $urlRouterProvider.otherwise('root/movies');
     }
 
-})
-();
+})();
