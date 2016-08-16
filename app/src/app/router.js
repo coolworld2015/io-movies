@@ -108,7 +108,7 @@
                 }
             })
 	
-        $urlRouterProvider.otherwise('root.home');
+        $urlRouterProvider.otherwise('root/home');
     }
 
 })
