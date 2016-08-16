@@ -80,6 +80,7 @@
             vm.movies = MoviesLocalStorage.getItems();
             vm.moviesFilter = vm.movies;
             $scope.$broadcast('scroll.refreshComplete');
+			$state.go('root.movies', {}, {reload: true});
         }
 
         function queryChanged() {
@@ -94,12 +95,12 @@
         }
 
         function itemDetails(item) {
-            $state.go('root.movies-details', {item: item});
+            $state.go('root.movies-details', {item: item}, {reload: true});
         }
 
 
         function itemsSearch() {
-            $state.go('root.movies-search');
+			$state.go('root.movies-search', {}, {reload: true});
         }
 
         function errorHandler() {

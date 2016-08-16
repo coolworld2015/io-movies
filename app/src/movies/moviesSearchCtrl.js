@@ -50,7 +50,7 @@
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner>'
             });
-            $state.go('root.movies-search-results', {name: vm.name, search: vm.search, finds: true});
+            $state.go('root.movies-search-results', {name: vm.name, search: vm.search, finds: true}, {reload: true});
         }
     }
 })();

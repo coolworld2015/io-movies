@@ -59,12 +59,12 @@
         }
 
         function moviesDetails(item) {
-            $state.go('root.movies-details', {item: item});
+            $state.go('root.movies-details', {item: item}, {reload: true});
         }
 
 
         function moviesSearch() {
-            $state.go('root.movies-search');
+            $state.go('root.movies-search', {}, {reload: true});
         }
     }
 })();

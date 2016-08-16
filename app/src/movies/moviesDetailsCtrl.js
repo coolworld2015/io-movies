@@ -54,7 +54,7 @@
                 MoviesLocalStorage.getItems();
                 MoviesLocalStorage.addItem(item);
  				$ionicLoading.hide();
-				$state.go('root.movies');
+				$state.go('root.movies', {}, {reload: true});
              } catch (e) {
                 errorHandler();
                 alert(e);
