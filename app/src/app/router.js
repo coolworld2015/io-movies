@@ -106,10 +106,12 @@
                             } else {
                                 webUrl = 'http://www.omdbapi.com/?i=';
                             }
-                            return $http.get(webUrl + name + '&plot=full')
-                                .then(function (data) {
+                            //return $http.get(webUrl + name + '&plot=full')
+                            return $http.jsonp('https://itunes.apple.com/search?callback=JSON_CALLBACK&media=movie&term=' + name)
+                                .then(function (response) {
                                     $ionicLoading.hide();
-                                    return data.data;
+									console.log(response.data.results);
+                                    return response.data.results;
                                 })
                                 .catch(function () {
                                     $rootScope.raisedError = true;
