@@ -1,4 +1,4 @@
-<ion-view view-title="{{moviesDetailsCtrl.trackName}}">
+<ion-view view-title="{{moviesDetailsCtrl.name}}">
     <ion-nav-buttons side="secondary">
         <button class="button button-icon ion-navicon"
                 ng-click="moviesDetailsCtrl.showSubmit()">
@@ -7,17 +7,17 @@
 
     <ion-content class="padding">
 
-        <h2 align="center">{{moviesDetailsCtrl.trackName}}</h2>
+        <h2 align="center">{{moviesDetailsCtrl.name}}</h2>
 
         <div class="list">
 			<label class="item">
-				<img ng-src="{{moviesDetailsCtrl.artworkUrl100}}" style="width:100%">
+				<img ng-src="{{moviesDetailsCtrl.pic}}" style="width:100%">
 			</label>
 
             <label class="item item-input">
                 <span class="input-label"><b>Year:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.releaseDate">
+                       ng-model="moviesDetailsCtrl.year">
             </label>
 
             <label class="item item-input">
@@ -29,13 +29,13 @@
             <label class="item item-input">
                 <span class="input-label"><b>Genre:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.primaryGenreName">
+                       ng-model="moviesDetailsCtrl.genre">
             </label>
 			
 			<label class="item item-input">
                 <span class="input-label"><b>Director:</b></span>
                 <input type="text"
-                          ng-model="moviesDetailsCtrl.artistName">
+                          ng-model="moviesDetailsCtrl.actors">
             </label>
 			
             <label class="item item-input">
@@ -53,13 +53,13 @@
             <label class="item item-input">
                 <span class="input-label"><b>Rating:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.contentAdvisoryRating">
+                       ng-model="moviesDetailsCtrl.imdbRating">
             </label>	
 						
             <label class="item item-input">
                 <span class="input-label"><b>Plot:</b></span>
                 <textarea rows="15" style="width: 62%"
-                          ng-model="moviesDetailsCtrl.longDescription">
+                          ng-model="moviesDetailsCtrl.plot">
                 </textarea>						   
             </label>
 			

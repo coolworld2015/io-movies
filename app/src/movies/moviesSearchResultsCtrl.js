@@ -23,9 +23,6 @@
         init();
 
         function init() {
-			vm.movies = items;
-			return;
-			
 			var arr = [];
 			arr.push(items);
 			if (items.Response == 'False') {

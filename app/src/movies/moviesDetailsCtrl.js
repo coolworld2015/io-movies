@@ -23,8 +23,6 @@
 
         function init() {
             vm.submitShowed = false;
-            vm.releaseDate = $filter('date')(vm.releaseDate, 'yyyy');
-            vm.artworkUrl100 = vm.artworkUrl100.replace('100x100bb.jpg', '500x500bb.jpg');
         }
 
         function showSubmit() {

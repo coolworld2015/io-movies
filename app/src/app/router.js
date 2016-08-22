@@ -91,7 +91,7 @@
                     'root-movies': {
                         templateUrl: 'movies/movies-search-results.html',
                         controller: 'MoviesSearchResultsCtrl',
-                        controllerAs: 'moviesResultsCtrl'
+                        controllerAs: 'moviesSearchResultsCtrl'
                     }
                 },
                 resolve: {
@@ -108,13 +108,15 @@
                             }
 
                             return $http.get(webUrl + name + '&plot=full')
-                                .then(function (data) {
-                                    return data.data;
+                                .then(function (response) {
+                                    $ionicLoading.hide();
+                                    console.log(response.data);
+                                    return response.data;
                                 })
                                 .catch(function (reject) {
-                                    $rootScope.loading = false;
-                                    $rootScope.myError = true;
-                                    return $q.reject(reject);
+                                    $rootScope.raisedError = true;
+                                    $ionicLoading.hide();
+                                    return [];
                                 });
                         }]
                 }
