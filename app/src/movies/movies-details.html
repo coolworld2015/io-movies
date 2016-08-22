@@ -1,4 +1,4 @@
-<ion-view view-title="{{moviesDetailsCtrl.name}}">
+<ion-view view-title="{{moviesDetailsCtrl.trackName}}">
     <ion-nav-buttons side="secondary">
         <button class="button button-icon ion-navicon"
                 ng-click="moviesDetailsCtrl.showSubmit()">
@@ -7,7 +7,7 @@
 
     <ion-content class="padding">
 
-        <h2 align="center">{{moviesDetailsCtrl.name}}</h2>
+        <h2 align="center">{{moviesDetailsCtrl.trackName}}</h2>
 
         <div class="list">
 			<label class="item">
@@ -17,7 +17,7 @@
             <label class="item item-input">
                 <span class="input-label"><b>Year:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.year">
+                       ng-model="moviesDetailsCtrl.releaseDate">
             </label>
 
             <label class="item item-input">
@@ -29,14 +29,13 @@
             <label class="item item-input">
                 <span class="input-label"><b>Genre:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.genre">
+                       ng-model="moviesDetailsCtrl.primaryGenreName">
             </label>
 			
 			<label class="item item-input">
-                <span class="input-label"><b>Actors:</b></span>
-                <textarea rows="3" style="width: 62%"
-                          ng-model="moviesDetailsCtrl.actors">
-                </textarea>					   
+                <span class="input-label"><b>Director:</b></span>
+                <input type="text"
+                          ng-model="moviesDetailsCtrl.artistName">
             </label>
 			
             <label class="item item-input">
@@ -54,13 +53,13 @@
             <label class="item item-input">
                 <span class="input-label"><b>Rating:</b></span>
                 <input type="text"
-                       ng-model="moviesDetailsCtrl.imdbRating">
+                       ng-model="moviesDetailsCtrl.contentAdvisoryRating">
             </label>	
 						
             <label class="item item-input">
                 <span class="input-label"><b>Plot:</b></span>
                 <textarea rows="15" style="width: 62%"
-                          ng-model="moviesDetailsCtrl.plot">
+                          ng-model="moviesDetailsCtrl.longDescription">
                 </textarea>						   
             </label>
 			

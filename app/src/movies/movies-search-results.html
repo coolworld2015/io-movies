@@ -22,10 +22,11 @@
                     type="item-text-wrap" ng-click="moviesResultsCtrl.moviesDetails(item)">
                 
                 <a class="item item-thumbnail-left">
-                    <img ng-src="{{item.artworkUrl100}}">
-                    <h2>{{item.name}}</h2>
-                    <p>{{item.country}} - {{item.year}}</p>
-                    <p>{{item.genre}}</p>
+                    <img ng-src="{{item.artworkUrl100.replace('100x100bb.jpg', '500x500bb.jpg')}}">
+                    <h2>{{item.trackName}}</h2>
+                    <p>{{item.country}} - {{item.releaseDate | date:'yyyy'}}</p>
+                    <p>{{item.primaryGenreName}}</p>
+                    <p>{{item.artistName}}</p>
                 </a>
 				
             </div>
