@@ -106,11 +106,41 @@
                             } else {
                                 webUrl = 'http://www.omdbapi.com/?i=';
                             }
-                            //return $http.get(webUrl + name + '&plot=full')
+
+                            return $http.get(webUrl + name + '&plot=full')
+                                .then(function (data) {
+                                    return data.data;
+                                })
+                                .catch(function (reject) {
+                                    $rootScope.loading = false;
+                                    $rootScope.myError = true;
+                                    return $q.reject(reject);
+                                });
+                        }]
+                }
+            })
+
+            .state('root.itunes-search-results', {
+                url: '/itunes-search-results?name',
+                data: {
+                    requireLogin: true
+                },
+                views: {
+                    'root-movies': {
+                        templateUrl: 'movies/itunes-search-results.html',
+                        controller: 'ItunesSearchResultsCtrl',
+                        controllerAs: 'itunesSearchResultsCtrl'
+                    }
+                },
+                resolve: {
+                    items: ['$http', '$stateParams', '$rootScope', '$ionicLoading',
+                        function ($http, $stateParams, $rootScope, $ionicLoading) {
+                            var name = $stateParams.name;
+
                             return $http.jsonp('https://itunes.apple.com/search?callback=JSON_CALLBACK&media=movie&term=' + name)
                                 .then(function (response) {
                                     $ionicLoading.hide();
-									console.log(response.data.results);
+                                    console.log(response.data.results);
                                     return response.data.results;
                                 })
                                 .catch(function () {
@@ -121,7 +151,6 @@
                         }]
                 }
             });
-
         $urlRouterProvider.otherwise('root/movies');
     }
 

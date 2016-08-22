@@ -13,7 +13,6 @@
         angular.extend(vm, {
             init: init,
             change: change,
-            toggleTypeChanged: toggleTypeChanged,
             toggleChanged: toggleChanged,
             doSearch: doSearch
         });
@@ -22,9 +21,7 @@
 
         function init() {
             vm.finds = true;
-            vm.findsType = true;
             vm.search = 'title';
-            vm.searchType = 'iTunes';
         }
 
         function change() {
@@ -32,22 +29,12 @@
             vm.minLengthError = false;
         }
 
-        function toggleTypeChanged() {
-            if (vm.findsType) {
-                vm.searchType = 'iTunes';
-            } else {
-                vm.searchType = 'IMDB';
-            }
-        }
-
         function toggleChanged() {
-            if (vm.searchType == 'IMDB') {
-                if (vm.finds) {
-                    vm.search = 'title';
-                } else {
-                    vm.search = 'IMDB-ID';
-                }
-            }
+            if (vm.finds) {
+                vm.search = 'title';
+            } else {
+				vm.search = 'IMDB-ID';
+              }
         }
 
         function doSearch() {
@@ -63,11 +50,7 @@
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner>'
             });
-            if (vm.searchType == 'IMDB') {
-                $state.go('root.movies-search-results', {name: vm.name, search: vm.search, finds: true}, {reload: true});
-            } else {
-                $state.go('root.itunes-search-results', {name: vm.name}, {reload: true});
-            }
+            $state.go('root.movies-search-results', {name: vm.name, search: vm.search, finds: true}, {reload: true});
         }
     }
 })();

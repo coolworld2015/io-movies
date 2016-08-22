@@ -1,4 +1,4 @@
-<ion-view view-title="Search movies">
+<ion-view view-title="Search movies in IMDB">
     <ion-nav-buttons side="secondary">
         <button class="button button-icon ion-navicon"
                 ng-click="data.showDelete = !data.showDelete; data.showReorder = false;">
@@ -7,17 +7,23 @@
 
     <ion-content class="padding">
         <button class="button button-block button-positive" style="background-color: #417D9A !important;">
-            <strong>Search in {{moviesSearchCtrl.searchType}} by {{moviesSearchCtrl.search}}</strong>
+            <strong>Search by {{moviesSearchCtrl.search}}</strong>
         </button>
-
-        <ion-toggle  ng-model="moviesSearchCtrl.findsType" ng-change="moviesSearchCtrl.toggleTypeChanged()">
-            Search in {{moviesSearchCtrl.searchType}}
-        </ion-toggle>
 
         <ion-toggle  ng-model="moviesSearchCtrl.finds" ng-change="moviesSearchCtrl.toggleChanged()">
             Search by {{moviesSearchCtrl.search}}
         </ion-toggle>
-
+        <!--
+                <li class="item item-toggle">
+                    Search by {{phonesSearchCtrl.search}}
+                    <label class="toggle toggle-balanced active" ng-click="phonesSearchCtrl.toggleChanged()">
+                        <input type="checkbox">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+        -->
         <form ng-submit="moviesSearchCtrl.doSearch()" novalidate name="moviesSearchCtrl.form" autocomplete="off">
             <div class="list">
                 <label class="item item-input">
