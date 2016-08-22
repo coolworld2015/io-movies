@@ -5,9 +5,9 @@
         .module('app')
         .controller('MoviesDetailsCtrl', MoviesDetailsCtrl);
 
-    MoviesDetailsCtrl.$inject = ['$state', '$rootScope', '$filter', '$stateParams', '$ionicLoading', 'MoviesLocalStorage'];
+    MoviesDetailsCtrl.$inject = ['$state', '$rootScope', '$stateParams', '$ionicLoading', 'MoviesLocalStorage'];
 
-    function MoviesDetailsCtrl($state, $rootScope, $filter, $stateParams, $ionicLoading, MoviesLocalStorage) {
+    function MoviesDetailsCtrl($state, $rootScope, $stateParams, $ionicLoading, MoviesLocalStorage) {
         var vm = this;
 
         angular.extend(vm, {

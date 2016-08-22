@@ -69,12 +69,12 @@
             })
 
             .state('root.movies-search', {
-                url: '/movies-search',
+                url: '/search',
                 data: {
                     requireLogin: true
                 },
                 views: {
-                    'root-movies': {
+                    'root-search': {
                         templateUrl: 'movies/movies-search.html',
                         controller: 'MoviesSearchCtrl',
                         controllerAs: 'moviesSearchCtrl'
