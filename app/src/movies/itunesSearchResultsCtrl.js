@@ -5,10 +5,10 @@
         .module('app')
         .controller('ItunesSearchResultsCtrl', ItunesSearchResultsCtrl);
 
-    ItunesSearchResultsCtrl.$inject = ['$scope', '$rootScope', '$state', 'items',
+    ItunesSearchResultsCtrl.$inject = ['$filter', '$rootScope', '$state', 'items',
         '$ionicLoading', '$ionicPopup', '$ionicListDelegate'];
 
-    function ItunesSearchResultsCtrl($scope, $rootScope, $state, items,
+    function ItunesSearchResultsCtrl($filter, $rootScope, $state, items,
 		$ionicLoading, $ionicPopup, $ionicListDelegate) {
         var vm = this;
 
@@ -39,7 +39,23 @@
             vm.clear = false;
         }
 
-        function moviesDetails(item) {
+        function moviesDetails(items) {
+            var item = {
+                plot: items.longDescription,
+                name: items.trackName,
+                year: $filter('date')(items.releaseDate, 'yyyy'),
+                pic: items.artworkUrl100.replace('100x100bb.jpg', '500x500bb.jpg'),
+                genre: items.primaryGenreName,
+                country: items.country,
+                director: items.artistName,
+                actors: 'n/a',
+                runtime: 'n/a',
+                type: 'n/a',
+                imdbID: 'n/a',
+                imdbRating: items.contentAdvisoryRating
+            };
+
+
             $state.go('root.movies-details', {item: item}, {reload: true});
         }
 

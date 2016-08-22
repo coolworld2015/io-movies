@@ -44,6 +44,7 @@
                 genre: vm.genre,
                 country: vm.country,
                 actors: vm.actors,
+                director: vm.director,
                 runtime: vm.runtime,
                 type: vm.type,
                 imdbID: vm.imdbID,

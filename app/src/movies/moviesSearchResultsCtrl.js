@@ -35,6 +35,7 @@
 				arr[0].pic = items.Poster;
 				arr[0].genre = items.Genre;
 				arr[0].country = items.Country;
+				arr[0].director = items.Director;
 				arr[0].actors = items.Actors;
 				arr[0].runtime = items.Runtime;
 				arr[0].type = items.Type;
