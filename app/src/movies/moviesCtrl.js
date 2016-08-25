@@ -49,7 +49,7 @@
 
         function showConfirm(movie) {
             var confirmPopup = $ionicPopup.confirm({
-                title: 'Delete client',
+                title: 'Delete movie',
                 template: 'Are you sure you want to delete ' + movie.name + '?'
             });
 

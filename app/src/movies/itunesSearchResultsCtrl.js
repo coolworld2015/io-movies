@@ -55,7 +55,7 @@
             };
 
 
-            $state.go('root.movies-details', {item: item}, {reload: true});
+            $state.go('root.movies-itunes-details', {item: item}, {reload: true});
         }
 
 

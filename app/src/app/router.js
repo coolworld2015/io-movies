@@ -68,6 +68,21 @@
                 }
             })
 
+            .state('root.movies-itunes-details', {
+                url: '/movies-itunes-details',
+                data: {
+                    requireLogin: true
+                },
+                params: {item: {}},
+                views: {
+                    'root-search': {
+                        templateUrl: 'movies/movies-details.html',
+                        controller: 'MoviesDetailsCtrl',
+                        controllerAs: 'moviesDetailsCtrl'
+                    }
+                }
+            })
+
             .state('root.movies-search', {
                 url: '/search',
                 data: {
@@ -89,7 +104,7 @@
                 },
                 params: {item: {}},
                 views: {
-                    'root-movies': {
+                    'root-search': {
                         templateUrl: 'movies/movies-search-results.html',
                         controller: 'MoviesSearchResultsCtrl',
                         controllerAs: 'moviesSearchResultsCtrl'
@@ -128,7 +143,7 @@
                     requireLogin: true
                 },
                 views: {
-                    'root-movies': {
+                    'root-search': {
                         templateUrl: 'movies/itunes-search-results.html',
                         controller: 'ItunesSearchResultsCtrl',
                         controllerAs: 'itunesSearchResultsCtrl'
