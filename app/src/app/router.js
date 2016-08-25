@@ -87,6 +87,7 @@
                 data: {
                     requireLogin: true
                 },
+                params: {item: {}},
                 views: {
                     'root-movies': {
                         templateUrl: 'movies/movies-search-results.html',
@@ -110,7 +111,6 @@
                             return $http.get(webUrl + name + '&plot=full')
                                 .then(function (response) {
                                     $ionicLoading.hide();
-                                    console.log(response.data);
                                     return response.data;
                                 })
                                 .catch(function (reject) {
@@ -142,7 +142,6 @@
                             return $http.jsonp('https://itunes.apple.com/search?callback=JSON_CALLBACK&media=movie&term=' + name)
                                 .then(function (response) {
                                     $ionicLoading.hide();
-                                    console.log(response.data.results);
                                     return response.data.results;
                                 })
                                 .catch(function () {

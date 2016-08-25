@@ -5,11 +5,9 @@
         .module('app')
         .controller('MoviesSearchResultsCtrl', MoviesSearchResultsCtrl);
 
-    MoviesSearchResultsCtrl.$inject = ['$scope', '$rootScope', '$state', 'items',
-        '$ionicLoading', '$ionicPopup', '$ionicListDelegate'];
+    MoviesSearchResultsCtrl.$inject = ['$stateParams', '$state', 'items'];
 
-    function MoviesSearchResultsCtrl($scope, $rootScope, $state, items, 
-		$ionicLoading, $ionicPopup, $ionicListDelegate) {
+    function MoviesSearchResultsCtrl($stateParams, $state, items) {
         var vm = this;
 
         angular.extend(vm, {
@@ -23,6 +21,7 @@
         init();
 
         function init() {
+            vm.name = $stateParams.name;
 			var arr = [];
 			arr.push(items);
 			if (items.Response == 'False') {

@@ -5,11 +5,9 @@
         .module('app')
         .controller('ItunesSearchResultsCtrl', ItunesSearchResultsCtrl);
 
-    ItunesSearchResultsCtrl.$inject = ['$filter', '$rootScope', '$state', 'items',
-        '$ionicLoading', '$ionicPopup', '$ionicListDelegate'];
+    ItunesSearchResultsCtrl.$inject = ['$filter', '$stateParams', '$state', 'items'];
 
-    function ItunesSearchResultsCtrl($filter, $rootScope, $state, items,
-		$ionicLoading, $ionicPopup, $ionicListDelegate) {
+    function ItunesSearchResultsCtrl($filter, $stateParams, $state, items) {
         var vm = this;
 
         angular.extend(vm, {
@@ -26,6 +24,7 @@
 			vm.movies = items;
             vm.moviesFilter = items;
             vm.clear = false;
+            vm.name = $stateParams.name;
         }
 
         function queryChanged() {
